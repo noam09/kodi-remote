@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 import json
 import requests
 from requests.auth import HTTPBasicAuth
@@ -16,8 +17,9 @@ except ImportError:
     from ConfigParser import SafeConfigParser
 
 # Get configuration
+script_dir = os.path.dirname(__file__)
 config = SafeConfigParser()
-config.read('config.ini')
+config.read(os.path.join(script_dir, 'config.ini'))
 
 # Check if player parameter set
 if len(sys.argv) != 2:
